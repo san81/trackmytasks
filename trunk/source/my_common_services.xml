@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- Configuration for JTA transaction manager. -->
+<!--	<bean id="transactionManager"-->
+<!--		class="org.springframework.transaction.jta.JtaTransactionManager" />-->
+
+	<!-- Configuration for hibernateTransactionManager. To be uncommented if hibernate transaction manager is being used.-->
+	  <bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+	<!---->
+
+	<bean id="transactionTemplate"
+		class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager">
+			<ref local="transactionManager" />
+		</property>
+	</bean>	
+</beans>

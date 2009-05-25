@@ -1,0 +1,13 @@
+<!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>	
+	 <definition name="basic.layout" template="/layout/basicLayout.jsp">
+	  	<put-attribute name="banner"	value="/includes/header.jsp" />
+		<put-attribute name="sideMenu" value="/includes/side_menu.jsp" />
+		<put-attribute name="body" value="/includes/body.jsp" />
+	 </definition>
+	 <definition name="my.login" extends="basic.layout">
+	 	<put-attribute name="body" value="/pages/login.jsp" />
+	 </definition>
+</tiles-definitions>
