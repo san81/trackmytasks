@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="mypackage" namespace="/" extends="tiles-default">
+		<!-- interceptors declaration -->
+		<interceptors>
+			<interceptor name="transactionInterceptor" class="com.san.my.web.interceptors.TransactionInterceptor"></interceptor>
+			<interceptor name="loginInterceptor" class="com.san.my.web.interceptors.LoginInterceptor"></interceptor>
+			<interceptor-stack name="loginAndTrans">				
+				<interceptor-ref name="transactionInterceptor"></interceptor-ref>
+				<interceptor-ref name="loginInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- end of interceptors -->
+		<default-interceptor-ref name="loginAndTrans"></default-interceptor-ref>
+       	<!-- Login Form Configuration -->
+        <action name="showLogin">
+			<result type="tiles">my.login</result>
+        </action>       
+        <action name="doLogin" class="com.san.my.web.action.account.Login">
+            <result  name="input">/pages/login.jsp</result>
+			<result  name="error">/pages/login.jsp</result>
+			<result name="success" type="tiles">admin.layout</result>
+        </action>
+        
+    </package>
+    
+    <package name="my-json-package" extends="json-default" namespace="/json">		  
+  </package>    
+
+</struts>
