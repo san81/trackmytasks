@@ -1,7 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
     <head>
-        <title>TrackMyTask Login </title>
+        <title>TrackMyTask Login</title>
 
 	    <link href="<s:url value="/css/main.css"/>" rel="stylesheet"
           type="text/css"/>
@@ -20,9 +20,8 @@
    </tr>
 
  <tr>
-       <td colspan="2">
-			<s:actionerror />
-			<s:fielderror />
+       <td colspan="2">			
+			<!--<s:fielderror /> -->
        </td>
 
  </tr>
