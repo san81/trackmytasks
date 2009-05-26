@@ -10,4 +10,7 @@
 	 <definition name="my.login" extends="basic.layout">
 	 	<put-attribute name="body" value="/pages/login.jsp" />
 	 </definition>
+	 	 <definition name="admin.loggedin" extends="basic.layout">
+	 	<put-attribute name="body" value="/pages/adminLoggedin.jsp" />
+	 </definition>
 </tiles-definitions>

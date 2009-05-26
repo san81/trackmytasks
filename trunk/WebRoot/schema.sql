@@ -62,3 +62,6 @@ FOREIGN KEY(assigned_person) REFERENCES users(user_id) ON UPDATE CASCADE,
 FOREIGN KEY(creation_person_id) REFERENCES users(user_id) ON UPDATE CASCADE,
 FOREIGN KEY(tasklist_id) REFERENCES tasklist(tasklist_id) ON UPDATE CASCADE
 )ENGINE=INNODB;
+
+
+insert into users (user_name,password,email) values('Admin','password','admin@trackmytask.com');

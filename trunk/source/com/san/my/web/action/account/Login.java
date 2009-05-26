@@ -11,7 +11,7 @@ public  class Login  extends ActionSupport {
 
     public String execute() throws Exception {
         System.out.println("Validating login");
-		if(!getUsername().equals("Admin") || !getPassword().equals("Admin")){
+		if(!getUsername().equals("Admin") || !getPassword().equals("password")){
             addActionError("Invalid user name or password! Please try again!");
             return ERROR;
 		}else{
