@@ -5,4 +5,6 @@
 	<bean id="objectDAO" class="com.san.my.dao.impl.ObjectDAOImpl">
 		<property name="sessionFactory"><ref bean="sessionFactory"/></property>
 	</bean>
+	<bean id="usersDAO" class="com.san.my.dao.impl.UsersDAOImpl" parent="objectDAO">		
+	</bean>
 </beans>

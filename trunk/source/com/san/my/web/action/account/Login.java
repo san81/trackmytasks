@@ -1,5 +1,8 @@
 package com.san.my.web.action.account;
 import com.opensymphony.xwork2.ActionSupport;
+import com.san.my.common.util.springs.ServiceLocator;
+import com.san.my.service.IUsersService;
+
 import java.util.Date;
 
 
@@ -11,12 +14,15 @@ public  class Login  extends ActionSupport {
 
     public String execute() throws Exception {
         System.out.println("Validating login");
-		if(!getUsername().equals("Admin") || !getPassword().equals("password")){
-            addActionError("Invalid user name or password! Please try again!");
+        IUsersService service = ServiceLocator.getUserService();
+        int userStatus = service.validateUser(username, password);
+		if(userStatus==2){
+            addActionError("user not exists");            
             return ERROR;
-		}else{
-			return SUCCESS;
-		}
+		}else if(userStatus==1){
+			addActionError("Invalid password");
+			return ERROR;
+		}else return SUCCESS;
 	}
 
 

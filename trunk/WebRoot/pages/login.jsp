@@ -20,8 +20,9 @@
    </tr>
 
  <tr>
-       <td colspan="2">			
-			<!--<s:fielderror /> -->
+       <td colspan="2">		
+   			<s:actionerror />	
+			<s:fielderror />
        </td>
 
  </tr>
