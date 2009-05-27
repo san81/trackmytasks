@@ -33,6 +33,8 @@
         <action name="showUsers" class="com.san.my.web.action.account.UserActions">	        
 			<result name="success" type="tiles">user.listUsers</result>
         </action>
+        <action name="addUser" class="com.san.my.web.action.account.UserActions">
+        </action>
         
         
     </package>

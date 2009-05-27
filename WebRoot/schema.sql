@@ -66,3 +66,4 @@ FOREIGN KEY(tasklist_id) REFERENCES tasklist(tasklist_id) ON UPDATE CASCADE
 
 
 insert into users (user_name,password,email) values('Admin','password','admin@trackmytask.com');
+insert into users (user_name,password,email) values('firstuser','password','first@trackmytask.com');
