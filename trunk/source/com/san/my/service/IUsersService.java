@@ -1,5 +1,9 @@
 package com.san.my.service;
 
+import java.util.List;
+
+import com.san.tmts.dataobjects.UsersDO;
+
 /**
  * Service for user management actions.
  * 
@@ -17,4 +21,11 @@ public interface IUsersService {
 	 * @return
 	 */
 	public int validateUser(String email,String password); 
+	
+	/**
+	 * Returns the list of users
+	 * 
+	 * @return
+	 */
+	public List<UsersDO> getUsersList();
 }
