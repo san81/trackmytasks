@@ -29,7 +29,7 @@
             <column name="lastupdate_date" length="19" />
         </property>
         <property name="lastUpdatePersonId" type="java.lang.Integer">
-            <column name="lastupdate_perdon_id" length="19" />
+            <column name="lastupdate_person_id" length="19" />
         </property>
         <set name="tasksesForAssignedPerson" inverse="true">
             <key>

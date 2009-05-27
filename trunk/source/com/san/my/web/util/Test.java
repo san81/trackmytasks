@@ -11,8 +11,6 @@ import org.springframework.transaction.support.TransactionTemplate;
 import com.san.my.common.global.AppConstants;
 import com.san.my.common.util.springs.BeanLocatorFactory;
 import com.san.my.dao.ObjectDAO;
-import com.san.my.dataobj.AccountsDO;
-import com.san.my.dataobj.SlipDO;
 
 public class Test {
 
@@ -26,15 +24,15 @@ public class Test {
 			ObjectDAO objectDAO = (ObjectDAO)appContext.getBean("objectDAO");
 			Session session = objectDAO.getHibSession();
 	       	 Transaction tx = session.beginTransaction();
-	       	 	AccountsDO accountsDO = (AccountsDO)session.load(AccountsDO.class, 2);
+	       	 	//AccountsDO accountsDO = (AccountsDO)session.load(AccountsDO.class, 2);
 	       	 	
 	       	 tx.commit();
 	       	 session.close();
 	       	 //accountsDO.setAccountId(2);
 	       	session = objectDAO.getHibSession();
 	       	 tx = session.beginTransaction();
-	       	 accountsDO.setName("one4");
-	       session.update(accountsDO);
+	       	// accountsDO.setName("one4");
+	       //session.update(accountsDO);
 	       	 tx.commit();
 		}
 	
@@ -52,17 +50,17 @@ public class Test {
                      {
                          try {
                          	
-                        	 ObjectDAO objectDAO = (ObjectDAO)fappContext.getBean("objectDAO");
-                        	 Session session = objectDAO.getHibSession();
-                        	 Transaction tx = session.beginTransaction();
-                        	 	AccountsDO accountsDO = (AccountsDO)session.load(AccountsDO.class, 2);
-                        	 tx.commit();
-                        	 //accountsDO.setAccountId(2);
-                        	 accountsDO.setName("gfeabcaaaaad");
-                        	 accountsDO.setLoginName("gfeaaaaaaa");
-                        	 session.merge(accountsDO);
-                        	
-                        	 SlipDO slip  = (SlipDO)objectDAO.load(SlipDO.class,new Integer(21070));
+//                        	 ObjectDAO objectDAO = (ObjectDAO)fappContext.getBean("objectDAO");
+//                        	 Session session = objectDAO.getHibSession();
+//                        	 Transaction tx = session.beginTransaction();
+//                        	 	AccountsDO accountsDO = (AccountsDO)session.load(AccountsDO.class, 2);
+//                        	 tx.commit();
+//                        	 //accountsDO.setAccountId(2);
+//                        	 accountsDO.setName("gfeabcaaaaad");
+//                        	 accountsDO.setLoginName("gfeaaaaaaa");
+//                        	 session.merge(accountsDO);
+//                        	
+//                        	 SlipDO slip  = (SlipDO)objectDAO.load(SlipDO.class,new Integer(21070));
                         	 
                          }
                          catch (Exception ex) {
