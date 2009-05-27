@@ -38,7 +38,7 @@
             <column name="lastupdate_date" length="19" />
         </property>
         <property name="lastUpdatePersonId" type="java.lang.Integer">
-            <column name="lastupdate_perdon_id" />
+            <column name="lastupdate_person_id" />
         </property>
     </class>
 </hibernate-mapping>

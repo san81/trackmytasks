@@ -6,7 +6,7 @@ create table users(
 user_id integer auto_increment primary key,
 user_name varchar(255) not null,
 password varchar(255) not null,
-email varchar(255) not null,
+email varchar(255) not null unique,
 creation_date datetime,
 creation_person_id integer,
 lastupdate_date datetime,
@@ -19,7 +19,7 @@ description text,
 creation_date datetime,
 creation_person_id integer,
 lastupdate_date datetime,
-lastupdate_perdon_id integer,
+lastupdate_person_id integer,
 FOREIGN KEY(creation_person_id) REFERENCES users(user_id) ON UPDATE CASCADE
 )ENGINE=INNODB;
 
@@ -29,7 +29,7 @@ user_id integer not null,
 creation_date datetime,
 creation_person_id integer,
 lastupdate_date datetime,
-lastupdate_perdon_id integer,
+lastupdate_person_id integer,
 primary key (project_id,user_id)
 )ENGINE=INNODB;
 
@@ -41,7 +41,7 @@ description text,
 creation_date datetime,
 creation_person_id integer,
 lastupdate_date datetime,
-lastupdate_perdon_id integer,
+lastupdate_person_id integer,
 FOREIGN KEY(creation_person_id) REFERENCES users(user_id) ON UPDATE CASCADE,
 FOREIGN KEY(project_id) REFERENCES project(project_id) ON UPDATE CASCADE
 )ENGINE=INNODB;
@@ -57,7 +57,7 @@ expected_end_datetime datetime,
 creation_date datetime,
 creation_person_id integer,
 lastupdate_date datetime,
-lastupdate_perdon_id integer,
+lastupdate_person_id integer,
 FOREIGN KEY(assigned_person) REFERENCES users(user_id) ON UPDATE CASCADE,
 FOREIGN KEY(creation_person_id) REFERENCES users(user_id) ON UPDATE CASCADE,
 FOREIGN KEY(tasklist_id) REFERENCES tasklist(tasklist_id) ON UPDATE CASCADE

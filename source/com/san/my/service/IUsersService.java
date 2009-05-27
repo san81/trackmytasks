@@ -12,9 +12,9 @@ public interface IUsersService {
 	 * 0 - if user find and password matches
 	 * 1 - if user find but invalid password
 	 * 2 - if user not found.
-	 * @param userName
+	 * @param email
 	 * @param password
 	 * @return
 	 */
-	public int validateUser(String userName,String password); 
+	public int validateUser(String email,String password); 
 }
