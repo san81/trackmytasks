@@ -1,19 +1,25 @@
 package com.san.my.web.action.account;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.ServletRequestAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.san.my.common.util.springs.ServiceLocator;
 import com.san.my.service.IUsersService;
-
-import java.util.Date;
+import com.san.tmts.dataobjects.UsersDO;
 
 
 /**
  * <p> Validate a user login. </p>
  */
-public  class Login  extends ActionSupport {
-
-
-    public String execute() throws Exception {
-        System.out.println("Validating login");
+public  class Login  extends ActionSupport{
+	
+    public String execute() throws Exception {       
         IUsersService service = ServiceLocator.getUserService();
         int userStatus = service.validateUser(username, password);
 		if(userStatus==2){
@@ -24,8 +30,7 @@ public  class Login  extends ActionSupport {
 			return ERROR;
 		}else return SUCCESS;
 	}
-
-
+   
     // ---- Username property ----
 
     /**
@@ -79,5 +84,5 @@ public  class Login  extends ActionSupport {
     public void setPassword(String value) {
         password = value;
     }
-
+		
 }

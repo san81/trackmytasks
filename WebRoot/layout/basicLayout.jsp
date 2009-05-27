@@ -8,7 +8,7 @@
 
 <html>
 <head>	
-	<title><s:text name="label.marketYard" /></title>
+	<title><s:text name="label.tmts" /></title>
 		<script language="JavaScript" type="text/javascript" src="scripts/marketYard.js"></script>
 		<script language="JavaScript" type="text/javascript" src="scripts/calendar3.js"></script> 
 </head>

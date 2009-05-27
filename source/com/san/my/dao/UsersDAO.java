@@ -1,5 +1,7 @@
 package com.san.my.dao;
 
+import java.util.List;
+
 import com.san.tmts.dataobjects.UsersDO;
 
 /**
@@ -17,4 +19,6 @@ public interface UsersDAO {
 	 * @return
 	 */
 	public UsersDO loadUser(String email);
+	
+	public List<UsersDO> getUsersList();
 }

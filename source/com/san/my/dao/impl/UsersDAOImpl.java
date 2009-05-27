@@ -13,4 +13,8 @@ public class UsersDAOImpl extends ObjectDAOImpl implements UsersDAO{
 			return null;
 		return users.get(0);
 	}
+	
+	public List<UsersDO> getUsersList(){
+		return findAll(UsersDO.class);
+	}
 }
