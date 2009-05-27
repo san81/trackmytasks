@@ -5,6 +5,7 @@
 	 <definition name="basic.layout" template="/layout/basicLayout.jsp">
 	  	<put-attribute name="banner"	value="/includes/header.jsp" />
 		<put-attribute name="sideMenu" value="/includes/side_menu.jsp" />
+		<put-attribute name="innerMenu" value="/includes/empty.jsp" />
 		<put-attribute name="body" value="/includes/body.jsp" />
 	 </definition>
 	 <definition name="my.login" extends="basic.layout">
@@ -14,6 +15,7 @@
 	 	<put-attribute name="body" value="/pages/adminLoggedin.jsp" />
 	 </definition>
 	 <definition name="user.listUsers" extends="basic.layout">
+		 <put-attribute name="innerMenu" value="/users/userMenu.jsp"/>
 	 	<put-attribute name="body" value="/users/listUsers.jsp" />
 	 </definition>
 </tiles-definitions>

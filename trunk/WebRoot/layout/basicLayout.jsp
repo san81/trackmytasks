@@ -8,9 +8,7 @@
 
 <html>
 <head>	
-	<title><s:text name="label.tmts" /></title>
-		<script language="JavaScript" type="text/javascript" src="scripts/marketYard.js"></script>
-		<script language="JavaScript" type="text/javascript" src="scripts/calendar3.js"></script> 
+	<title><s:text name="label.tmts" /></title>		
 </head>
 
 <body>
@@ -20,9 +18,22 @@
 				<tiles:insertAttribute name="banner"></tiles:insertAttribute>
 			</td>
 		</tr>
-		<tr height="300">
+		<tr height="500">
 			<td width="20%"> <tiles:insertAttribute name="sideMenu"></tiles:insertAttribute> </td>
-			<td><tiles:insertAttribute name="body"></tiles:insertAttribute> </td>
+			<td>
+				<table>
+					<tr>
+					  <td valign="top">
+						<tiles:insertAttribute name="innerMenu"></tiles:insertAttribute> 
+					  </td>
+					  </tr>
+					  <tr>
+					  <td>
+						<tiles:insertAttribute name="body"></tiles:insertAttribute> 					  
+					  </td>
+					</tr>
+				</table>
+			</td>
 		</tr>
 	</table>
 	
