@@ -11,20 +11,21 @@ import org.springframework.transaction.support.TransactionTemplate;
 import com.san.my.common.global.AppConstants;
 import com.san.my.common.util.springs.BeanLocatorFactory;
 import com.san.my.dao.ObjectDAO;
+import com.san.my.service.IUsersService;
 
 public class Test {
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void abcd_main(String[] args) {
 		final  String[] defaultConfigPaths = {AppConstants.APP_DAO_CONFIG,AppConstants.APP_BOTransaction_CONFIG,AppConstants.APP_CONFIG};		    	
 		    	
 			ApplicationContext appContext = new ClassPathXmlApplicationContext(defaultConfigPaths);
 			ObjectDAO objectDAO = (ObjectDAO)appContext.getBean("objectDAO");
 			Session session = objectDAO.getHibSession();
 	       	 Transaction tx = session.beginTransaction();
-	       	 	//AccountsDO accountsDO = (AccountsDO)session.load(AccountsDO.class, 2);
+	       	 //	AccountsDO accountsDO = (AccountsDO)session.load(AccountsDO.class, 2);
 	       	 	
 	       	 tx.commit();
 	       	 session.close();
@@ -36,7 +37,7 @@ public class Test {
 	       	 tx.commit();
 		}
 	
-	public static void trMethod(){
+	public static void main(String[] arg){
 		final  String[] defaultConfigPaths = {AppConstants.APP_DAO_CONFIG,AppConstants.APP_BOTransaction_CONFIG,AppConstants.APP_CONFIG};
 		ApplicationContext appContext = null;			 
         try {
@@ -50,17 +51,8 @@ public class Test {
                      {
                          try {
                          	
-//                        	 ObjectDAO objectDAO = (ObjectDAO)fappContext.getBean("objectDAO");
-//                        	 Session session = objectDAO.getHibSession();
-//                        	 Transaction tx = session.beginTransaction();
-//                        	 	AccountsDO accountsDO = (AccountsDO)session.load(AccountsDO.class, 2);
-//                        	 tx.commit();
-//                        	 //accountsDO.setAccountId(2);
-//                        	 accountsDO.setName("gfeabcaaaaad");
-//                        	 accountsDO.setLoginName("gfeaaaaaaa");
-//                        	 session.merge(accountsDO);
-//                        	
-//                        	 SlipDO slip  = (SlipDO)objectDAO.load(SlipDO.class,new Integer(21070));
+                        	 IUsersService userService = (IUsersService)BeanLocatorFactory.getBean("usersService");
+                        	 System.out.println(" result "+userService.validateUser("abcd@yaho.com",""));
                         	 
                          }
                          catch (Exception ex) {

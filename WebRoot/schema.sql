@@ -1,4 +1,5 @@
-
+drop database trackmytasks;
+create database trackmytasks;
 use trackmytasks;
 
 drop table if exists users;
@@ -10,7 +11,7 @@ email varchar(255) not null unique,
 creation_date datetime,
 creation_person_id integer,
 lastupdate_date datetime,
-lastupdate_perdon_id integer) ENGINE=INNODB;
+lastupdate_person_id integer) ENGINE=INNODB;
 
 create table project(
 project_id integer auto_increment primary key,
