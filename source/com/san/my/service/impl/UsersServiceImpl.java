@@ -14,13 +14,8 @@ public class UsersServiceImpl implements IUsersService {
 		this.usersDAO = userDao;
 	}
 	
-	public int validateUser(String email, String password) {
-		UsersDO user = usersDAO.loadUser(email);
-		if(user==null)
-			return 2;
-		if(user.getPassword().equals(password))
-			return 0;
-		else return 1;		
+	public UsersDO loadUser(String email, String password) {
+		return usersDAO.loadUser(email);				
 	}
 	
 	public List<UsersDO> getUsersList(){

@@ -1,17 +1,13 @@
 package com.san.my.common.global;
 
 
-/**
- * <p>Title: Registration</p>
- * <p>Description: </p>
- * <p>Copyright: Copyright (c) 2002</p>
- * <p>Company: GNX</p>
- * @author Mike Sprague
- * Modified by Xiaozhu Zhu on 10/16/2002
- * @version 1.0
- */
 public interface IConstants  {
 
+  public static final String KEY_USER_IN_SESSION  = "USER_OBJECT_IN_SESSION";
+  
+  //global action result mappings
+  public static final String LOGIN_ACTION  = "goToLogin";
+  
   public static final String KEY_USER_OBJECT  = "REGISTRY_USER_OBJECT";
   public static final String KEY_SETUP_OBJECT = "USER_SETUP_OBJECT";
   // session tokens
