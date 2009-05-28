@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.san.my.common.global.IConstants;
 import com.san.my.common.util.springs.ServiceLocator;
 import com.san.my.service.IUsersService;
 import com.san.tmts.dataobjects.UsersDO;
@@ -21,14 +23,18 @@ public  class Login  extends ActionSupport{
 	
     public String execute() throws Exception {       
         IUsersService service = ServiceLocator.getUserService();
-        int userStatus = service.validateUser(username, password);
-		if(userStatus==2){
+        UsersDO user = service.loadUser(username, password);
+		if(user==null){
             addActionError("user not exists");            
             return ERROR;
-		}else if(userStatus==1){
+		}else if(!user.getPassword().equals(password)){
 			addActionError("Invalid password");
 			return ERROR;
-		}else return SUCCESS;
+		}else {
+			Map<String,Object> session = ActionContext.getContext().getSession();
+			session.put(IConstants.KEY_USER_IN_SESSION,user);
+			return SUCCESS;
+		}
 	}
    
     // ---- Username property ----

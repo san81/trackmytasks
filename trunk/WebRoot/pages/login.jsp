@@ -1,4 +1,5 @@
-<%@ taglib prefix="s" uri="/struts-tags" %>
+
+<jsp:directive.page import="com.san.my.common.global.IConstants"/><%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
     <head>
         <title>TrackMyTask Login</title>
@@ -10,7 +11,7 @@
     <body>
 
 
-    <s:form action="doLogin" method="POST">
+    <s:form action="/doLogin.action" method="POST">
 			
  <tr>
        <td colspan="2">

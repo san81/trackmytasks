@@ -20,7 +20,7 @@ public interface IUsersService {
 	 * @param password
 	 * @return
 	 */
-	public int validateUser(String email,String password); 
+	public UsersDO loadUser(String email,String password); 
 	
 	/**
 	 * Returns the list of users

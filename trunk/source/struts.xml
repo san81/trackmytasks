@@ -6,9 +6,31 @@
 <struts>
 
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.devMode" value="true" />
-
-    <package name="mypackage" namespace="/" extends="tiles-default">
+    <constant name="struts.devMode" value="true" />	
+    
+    
+    <package name="initialPackage" namespace="/" extends="tiles-default">
+    	<interceptors>
+			<interceptor name="transactionInterceptor" class="com.san.my.web.interceptors.TransactionInterceptor"></interceptor>
+			<interceptor-stack name="beforeLogin">				
+				<interceptor-ref name="transactionInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>		
+		 <default-interceptor-ref name="beforeLogin"></default-interceptor-ref>
+    	<global-results>
+        	<result name="goToLogin">/pages/login.jsp</result>
+        </global-results>
+    	 <action name="showLogin">    	 	
+    	 	 <result>/pages/login.jsp</result>
+        </action>               
+        <action name="doLogin" class="com.san.my.web.action.account.Login">
+            <result  name="input" >/pages/login.jsp</result>
+			<result  name="error" >/pages/login.jsp</result>
+			<result name="success" type="tiles">user.loggedin</result>
+        </action>
+    </package>
+    <package name="mypackage" namespace="/secure" extends="tiles-default">    
 		<!-- interceptors declaration -->
 		<interceptors>
 			<interceptor name="transactionInterceptor" class="com.san.my.web.interceptors.TransactionInterceptor"></interceptor>
@@ -21,22 +43,17 @@
 		</interceptors>
 		<!-- end of interceptors -->
 		<default-interceptor-ref name="loginAndTrans"></default-interceptor-ref>
-       	<!-- Login Form Configuration -->
-        <action name="showLogin">
-			<result>/pages/login.jsp</result>
-        </action>               
-        <action name="doLogin" class="com.san.my.web.action.account.Login">
-            <result  name="input" >/pages/login.jsp</result>
-			<result  name="error" >/pages/login.jsp</result>
-			<result name="success" type="tiles">user.loggedin</result>
-        </action>
+		<global-results>
+        	<result name="goToLogin">/pages/login.jsp</result>
+        </global-results>
+       	<!-- Login Form Configuration -->       
         <action name="showUsers" class="com.san.my.web.action.account.UserActions">	        
 			<result name="success" type="tiles">user.listUsers</result>
         </action>
         <action name="addUser" class="com.san.my.web.action.account.UserActions">
         </action>
-        
-        
+        <action name="logout" class="com.san.my.web.action.Logout">
+        </action>
     </package>
     
     <package name="my-json-package" extends="json-default" namespace="/json">		  
