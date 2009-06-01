@@ -17,8 +17,6 @@ public class TasksDO extends com.san.tmts.dataobjects.BaseDO implements
 
 	private TasklistDO tasklist;
 
-	private UsersDO usersByCreationPersonId;
-
 	private String taskName;
 
 	private String description;
@@ -50,7 +48,6 @@ public class TasksDO extends com.san.tmts.dataobjects.BaseDO implements
 		this.taskId = taskId;
 		this.usersByAssignedPerson = usersByAssignedPerson;
 		this.tasklist = tasklist;
-		this.usersByCreationPersonId = usersByCreationPersonId;
 		this.taskName = taskName;
 		this.description = description;
 		this.startDatetime = startDatetime;
@@ -81,14 +78,6 @@ public class TasksDO extends com.san.tmts.dataobjects.BaseDO implements
 
 	public void setTasklist(TasklistDO tasklist) {
 		this.tasklist = tasklist;
-	}
-
-	public UsersDO getUsersByCreationPersonId() {
-		return this.usersByCreationPersonId;
-	}
-
-	public void setUsersByCreationPersonId(UsersDO usersByCreationPersonId) {
-		this.usersByCreationPersonId = usersByCreationPersonId;
 	}
 
 	public String getTaskName() {

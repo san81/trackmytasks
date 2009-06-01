@@ -10,31 +10,28 @@ public class BaseDO implements Serializable
 {
 	
     private Date creationDate;
-    private Long creationPersonId;
+    private UsersDO creationPersonId;
     private Date lastUpdateDate;
-    private Long lastUpdatePersonId;
+    private UsersDO lastUpdatePersonId;
 
-    public Long getCreationPersonId()
-    {
-        return creationPersonId;
-    }
+   
+    public UsersDO getCreationPersonId() {
+		return creationPersonId;
+	}
 
-    public void setCreationPersonId(Long creationPersonId)
-    {
-        this.creationPersonId = creationPersonId;
-    }
+	public void setCreationPersonId(UsersDO creationPersonId) {
+		this.creationPersonId = creationPersonId;
+	}
 
-    public Long getLastUpdatePersonId()
-    {
-        return lastUpdatePersonId;
-    }
+	public UsersDO getLastUpdatePersonId() {
+		return lastUpdatePersonId;
+	}
 
-    public void setLastUpdatePersonId(Long lastUpdatePersonId)
-    {
-        this.lastUpdatePersonId = lastUpdatePersonId;
-    }
+	public void setLastUpdatePersonId(UsersDO lastUpdatePersonId) {
+		this.lastUpdatePersonId = lastUpdatePersonId;
+	}
 
-    public Date getCreationDate()
+	public Date getCreationDate()
     {
         return creationDate;
     }
