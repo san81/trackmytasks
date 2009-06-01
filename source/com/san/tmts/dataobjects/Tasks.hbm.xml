@@ -16,8 +16,11 @@
         <many-to-one name="tasklist" class="com.san.tmts.dataobjects.TasklistDO" fetch="select">
             <column name="tasklist_id" not-null="true" />
         </many-to-one>
-        <many-to-one name="usersByCreationPersonId" class="com.san.tmts.dataobjects.UsersDO" fetch="select">
+         <many-to-one name="creationPersonId" class="com.san.tmts.dataobjects.UsersDO" fetch="select">
             <column name="creation_person_id" />
+        </many-to-one>
+        <many-to-one name="lastUpdatePersonId" class="com.san.tmts.dataobjects.UsersDO" fetch="select">
+            <column name="lastupdate_person_id" />
         </many-to-one>
         <property name="taskName" type="java.lang.String">
             <column name="task_name" not-null="true" />
@@ -36,9 +39,6 @@
         </property>        
         <property name="lastUpdateDate" type="java.util.Date">
             <column name="lastupdate_date" length="19" />
-        </property>
-        <property name="lastUpdatePersonId" type="java.lang.Integer">
-            <column name="lastupdate_person_id" />
         </property>
     </class>
 </hibernate-mapping>
