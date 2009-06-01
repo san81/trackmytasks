@@ -10,8 +10,11 @@
             <column name="project_id" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="users" class="com.san.tmts.dataobjects.UsersDO" fetch="select">
+        <many-to-one name="creationPersonId" class="com.san.tmts.dataobjects.UsersDO" fetch="select">
             <column name="creation_person_id" />
+        </many-to-one>
+        <many-to-one name="lastUpdatePersonId" class="com.san.tmts.dataobjects.UsersDO" fetch="select">
+            <column name="lastupdate_person_id" />
         </many-to-one>
         <property name="projectName" type="java.lang.String">
             <column name="project_name" not-null="true" />
@@ -25,9 +28,7 @@
         <property name="lastUpdateDate" type="java.util.Date">
             <column name="lastupdate_date" length="19" />
         </property>
-        <property name="lastUpdatePersonId" type="java.lang.Integer">
-            <column name="lastupdate_person_id" />
-        </property>
+
         <set name="tasklists" inverse="true">
             <key>
                 <column name="project_id" not-null="true" />
